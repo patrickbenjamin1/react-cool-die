@@ -2,7 +2,7 @@
     "name": "react-cool-die",
     "author": "Patrick Benjamin",
     "main": "react-cool-die/output/index.js",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "dependencies": {
         "@rocketmakers/armstrong": "0.0.1-alpha.63",
         "react": "^16.12.0",
@@ -13,8 +13,7 @@
     "typings": "react-cool-text/output/index.d.ts",
     "keywords": [
         "react",
-        "typescript",
-        "typography"
+        "typescript"
     ],
     "directories": {
         "lib": "react-cool-die/"
