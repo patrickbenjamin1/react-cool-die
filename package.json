@@ -2,7 +2,7 @@
     "name": "react-cool-die",
     "author": "Patrick Benjamin",
     "main": "react-cool-die/output/index.js",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "typings": "react-cool-text/output/index.d.ts",
     "keywords": [
         "react",

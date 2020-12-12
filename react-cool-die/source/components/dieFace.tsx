@@ -15,14 +15,16 @@ export const DieFace: React.FunctionComponent<IDieFaceProps> = ({ faceNumber }) 
     return (
         <div className="die-face" data-face-number={faceNumber}>
             {points.map((_, index) => (
-                <DieFacePoint key={index} />
+                <DiePoint key={index} />
             ))}
         </div>
     );
 };
 
-const DieFacePoint: React.FunctionComponent = () => (
-    <div className="point-wrapper">
-        <div className="point" />
+/** a point on a die, with a slight dimple effect */
+
+const DiePoint: React.FunctionComponent = () => (
+    <div className="die-point-wrapper">
+        <div className="die-point" />
     </div>
 );

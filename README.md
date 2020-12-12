@@ -6,6 +6,10 @@ A cool die component for rendering a 3D die in React.
 
 The die is built entirely using DOM elements with 3D CSS transformations
 
+The die is written in Typescript, and is fully typed
+
+Visually, the die is very easy to style by just overriding the default styling.
+
 [npm](https://www.npmjs.com/package/react-cool-die)
 
 ## Requirements
@@ -78,6 +82,20 @@ const MyCoolComponent = () => {
 ```
 
 The only arg that `useRandomDieRoll` takes is `rollTime` which is the time for a roll to happen in milliseconds.
+
+## Styling
+
+Visually, the die is very easy to style by just overriding the default styling in CSS.
+Certain properties will break it, so mostly stick to styling the `.die-face` and `.point` class
+
+```css
+.die-face {
+    background-color: red;
+}
+.die-point-wrapper .die-point {
+    background-color: blue;
+}
+```
 
 ## Screenshots
 

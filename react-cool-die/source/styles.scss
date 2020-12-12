@@ -86,144 +86,144 @@ $static-rotation-offset: 3deg;
         &[data-value='6'] {
             @include rotate3d($static-rotation-offset, calc(180deg + #{$static-rotation-offset}), 0);
         }
+    }
+}
 
-        .die-face {
-            position: absolute;
+.die-face {
+    position: absolute;
 
-            //   border: 1px solid rgb(250, 250, 250);
-            background-color: rgb(250, 250, 250);
+    //   border: 1px solid rgb(250, 250, 250);
+    background-color: rgb(250, 250, 250);
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
 
-            width: $face-size;
-            height: $face-size;
+    width: $face-size;
+    height: $face-size;
 
-            backface-visibility: unset;
+    backface-visibility: unset;
 
-            transform-style: preserve-3d;
+    transform-style: preserve-3d;
 
-            transform-origin: 50% 50% #{-$face-size / 2};
+    transform-origin: 50% 50% #{-$face-size / 2};
 
-            box-shadow: inset 1px 1px 5px rgb(200, 200, 200), inset -1px -1px 3px rgb(255, 255, 255);
+    box-shadow: inset 1px 1px 5px rgb(200, 200, 200), inset -1px -1px 3px rgb(255, 255, 255);
 
-            &[data-face-number='1'] {
-                @include rotate3d(0, 0, 0);
-            }
+    &[data-face-number='1'] {
+        @include rotate3d(0, 0, 0);
+    }
 
-            &[data-face-number='2'] {
-                @include rotate3d(-90deg, 0, 0);
-            }
+    &[data-face-number='2'] {
+        @include rotate3d(-90deg, 0, 0);
+    }
 
-            &[data-face-number='3'] {
-                @include rotate3d(0, -90deg, 0);
-            }
+    &[data-face-number='3'] {
+        @include rotate3d(0, -90deg, 0);
+    }
 
-            &[data-face-number='4'] {
-                @include rotate3d(90deg, 0, 0);
-            }
+    &[data-face-number='4'] {
+        @include rotate3d(90deg, 0, 0);
+    }
 
-            &[data-face-number='5'] {
-                @include rotate3d(0, 90deg, 0);
-            }
+    &[data-face-number='5'] {
+        @include rotate3d(0, 90deg, 0);
+    }
 
-            &[data-face-number='6'] {
-                @include rotate3d(0, 180deg, 0);
-            }
+    &[data-face-number='6'] {
+        @include rotate3d(0, 180deg, 0);
+    }
 
-            .point-wrapper {
-                position: absolute;
-                left: 50%;
-                top: 50%;
-
-                transform: translate3d(-50%, -50%, 2px);
-
-                .point {
-                    background-color: rgb(50, 50, 50);
-                    box-shadow: inset 1px 1px 3px rgb(150, 150, 150), inset -1px -1px 3px rgb(0, 0, 0);
-
-                    width: 15px;
-                    height: 15px;
-                    border-radius: 50%;
-                }
-            }
-
-            &[data-face-number='2'] {
-                .point-wrapper:nth-child(1) .point {
-                    transform: translate(-15px, -15px);
-                }
-                .point-wrapper:nth-child(2) .point {
-                    transform: translate(15px, 15px);
-                }
-            }
-
-            &[data-face-number='3'] {
-                .point-wrapper:nth-child(1) .point {
-                    transform: translate(-20px, -20px);
-                }
-                .point-wrapper:nth-child(2) .point {
-                    transform: translate(20px, 20px);
-                }
-                .point-wrapper:nth-child(3) .point {
-                    transform: translate(0, 0);
-                }
-            }
-
-            &[data-face-number='4'] {
-                .point-wrapper:nth-child(1) .point {
-                    transform: translate(-20px, -20px);
-                }
-                .point-wrapper:nth-child(2) .point {
-                    transform: translate(20px, 20px);
-                }
-                .point-wrapper:nth-child(3) .point {
-                    transform: translate(20px, -20px);
-                }
-                .point-wrapper:nth-child(4) .point {
-                    transform: translate(-20px, 20px);
-                }
-            }
-
-            &[data-face-number='5'] {
-                .point-wrapper:nth-child(1) .point {
-                    transform: translate(-20px, -20px);
-                }
-                .point-wrapper:nth-child(2) .point {
-                    transform: translate(20px, 20px);
-                }
-                .point-wrapper:nth-child(3) .point {
-                    transform: translate(20px, -20px);
-                }
-                .point-wrapper:nth-child(4) .point {
-                    transform: translate(-20px, 20px);
-                }
-                .point-wrapper:nth-child(5) .point {
-                    transform: translate(0, 0);
-                }
-            }
-
-            &[data-face-number='6'] {
-                .point-wrapper:nth-child(1) .point {
-                    transform: translate(-20px, -20px);
-                }
-                .point-wrapper:nth-child(2) .point {
-                    transform: translate(20px, 20px);
-                }
-                .point-wrapper:nth-child(3) .point {
-                    transform: translate(20px, -20px);
-                }
-                .point-wrapper:nth-child(4) .point {
-                    transform: translate(-20px, 20px);
-                }
-                .point-wrapper:nth-child(5) .point {
-                    transform: translate(-20px, 0);
-                }
-                .point-wrapper:nth-child(6) .point {
-                    transform: translate(20px, 0);
-                }
-            }
+    &[data-face-number='2'] {
+        .die-point-wrapper:nth-child(1) .die-point {
+            transform: translate(-15px, -15px);
         }
+        .die-point-wrapper:nth-child(2) .die-point {
+            transform: translate(15px, 15px);
+        }
+    }
+
+    &[data-face-number='3'] {
+        .die-point-wrapper:nth-child(1) .die-point {
+            transform: translate(-20px, -20px);
+        }
+        .die-point-wrapper:nth-child(2) .die-point {
+            transform: translate(20px, 20px);
+        }
+        .die-point-wrapper:nth-child(3) .die-point {
+            transform: translate(0, 0);
+        }
+    }
+
+    &[data-face-number='4'] {
+        .die-point-wrapper:nth-child(1) .die-point {
+            transform: translate(-20px, -20px);
+        }
+        .die-point-wrapper:nth-child(2) .die-point {
+            transform: translate(20px, 20px);
+        }
+        .die-point-wrapper:nth-child(3) .die-point {
+            transform: translate(20px, -20px);
+        }
+        .die-point-wrapper:nth-child(4) .die-point {
+            transform: translate(-20px, 20px);
+        }
+    }
+
+    &[data-face-number='5'] {
+        .die-point-wrapper:nth-child(1) .die-point {
+            transform: translate(-20px, -20px);
+        }
+        .die-point-wrapper:nth-child(2) .die-point {
+            transform: translate(20px, 20px);
+        }
+        .die-point-wrapper:nth-child(3) .die-point {
+            transform: translate(20px, -20px);
+        }
+        .die-point-wrapper:nth-child(4) .die-point {
+            transform: translate(-20px, 20px);
+        }
+        .die-point-wrapper:nth-child(5) .die-point {
+            transform: translate(0, 0);
+        }
+    }
+
+    &[data-face-number='6'] {
+        .die-point-wrapper:nth-child(1) .die-point {
+            transform: translate(-20px, -20px);
+        }
+        .die-point-wrapper:nth-child(2) .die-point {
+            transform: translate(20px, 20px);
+        }
+        .die-point-wrapper:nth-child(3) .die-point {
+            transform: translate(20px, -20px);
+        }
+        .die-point-wrapper:nth-child(4) .die-point {
+            transform: translate(-20px, 20px);
+        }
+        .die-point-wrapper:nth-child(5) .die-point {
+            transform: translate(-20px, 0);
+        }
+        .die-point-wrapper:nth-child(6) .die-point {
+            transform: translate(20px, 0);
+        }
+    }
+}
+
+.die-point-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    transform: translate3d(-50%, -50%, 2px);
+
+    .die-point {
+        background-color: rgb(50, 50, 50);
+        box-shadow: inset 1px 1px 3px rgb(150, 150, 150), inset -1px -1px 3px rgb(0, 0, 0);
+
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
     }
 }
