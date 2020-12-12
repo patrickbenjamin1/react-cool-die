@@ -1,4 +1,4 @@
-![example](./example.jpg)
+![example](./screenshots/1.png)
 
 # react-cool-die
 
