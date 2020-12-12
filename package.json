@@ -2,14 +2,7 @@
     "name": "react-cool-die",
     "author": "Patrick Benjamin",
     "main": "react-cool-die/output/index.js",
-    "version": "1.0.1",
-    "dependencies": {
-        "@rocketmakers/armstrong": "0.0.1-alpha.63",
-        "react": "^16.12.0",
-        "react-dom": "^16.12.0",
-        "react-helmet": "^5.2.1",
-        "react-router-dom": "^5.1.2"
-    },
+    "version": "1.0.2",
     "typings": "react-cool-text/output/index.d.ts",
     "keywords": [
         "react",
@@ -31,7 +24,11 @@
         "clean": "rm -rf playground/output react-cool-die/output",
         "clean-full": "npm run clean -- node_modules"
     },
+    "dependencies": {
+        "react": "17.0.1"
+    },
     "devDependencies": {
+        "react-dom": "^16.12.0",
         "@types/html-webpack-plugin": "^3.2.4",
         "@types/node": "^11.11.3",
         "@types/react": "^16.9.11",
