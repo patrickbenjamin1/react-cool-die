@@ -4,7 +4,8 @@
 
 A cool die component for rendering a 3D die in React.
 
-[codesandbox](https://codesandbox.io/s/weathered-cookies-10o2p)
+The die is built entirely using DOM elements with 3D CSS transformations
+
 [npm](https://www.npmjs.com/package/react-cool-die)
 
 ## Requirements
