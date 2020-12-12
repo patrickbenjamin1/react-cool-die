@@ -5,7 +5,7 @@ import { MathsUtils } from '../utils/maths';
 
 interface IUseRandomDieRollReturn {
     /** Perform a die roll */
-    roll: () => Promise<void>;
+    roll: () => Promise<number>;
 
     /** The last value returned from a die roll */
     value: number;
@@ -24,7 +24,9 @@ export const useRandomDieRoll = (rollTime = 1000): IUseRandomDieRollReturn => {
         setRolling(true);
         await AsyncUtils.wait(rollTime);
         setRolling(false);
-        setValue(MathsUtils.getRandomInRange(1, 6));
+        const rollValue = MathsUtils.getRandomInRange(1, 6);
+        setValue(rollValue);
+        return rollValue;
     }, [rollTime]);
 
     return { roll, value, rolling };

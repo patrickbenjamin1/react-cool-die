@@ -6,10 +6,10 @@ import { DieFace } from './dieFace';
 
 interface IDieProps {
     /** the current value to show on the die - clamped between 1 and 6 */
-    currentValue: number;
+    value: number;
 
     /** is currently spinning */
-    rolling: boolean;
+    rolling?: boolean;
 
     /** spin time in ms */
     spinTime?: number;
@@ -19,7 +19,7 @@ const faces = new Array(6).fill(0).map((_, index) => index + 1);
 
 /** A D6 die rendered using DOM elements with 3d transforms */
 
-export const Die: React.FunctionComponent<IDieProps> = ({ currentValue, rolling, spinTime }) => {
+export const Die: React.FunctionComponent<IDieProps> = ({ value, rolling, spinTime }) => {
     const [spinValue, setSpinValue] = React.useState<string>(null);
 
     const timeout = React.useRef<number>(null);
@@ -50,7 +50,7 @@ export const Die: React.FunctionComponent<IDieProps> = ({ currentValue, rolling,
 
     return (
         <div className="die-wrapper" data-rolling={rolling} style={{ transitionDuration: `${spinTime}ms` }}>
-            <div className="die" data-value={MathsUtils.clamp(currentValue, 1, 6) || null} style={style}>
+            <div className="die" data-value={MathsUtils.clamp(value, 1, 6) || null} style={style}>
                 {faces.map(face => (
                     <DieFace key={face} faceNumber={face} />
                 ))}
