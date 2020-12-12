@@ -1,24 +1,34 @@
 import * as React from 'react';
 
+import { MathsUtils } from '../utils/maths';
+import { StyleUtils } from '../utils/style';
+import { DieFace } from './dieFace';
+
 interface IDieProps {
+    /** the current value to show on the die - clamped between 1 and 6 */
     currentValue: number;
 
+    /** is currently spinning */
     spinning: boolean;
+
+    /** spin time in ms */
     spinTime?: number;
 }
 
 const faces = new Array(6).fill(0).map((_, index) => index + 1);
+
+/** A D6 die rendered using DOM elements with 3d transforms */
 
 export const Die: React.FunctionComponent<IDieProps> = ({ currentValue, spinning, spinTime }) => {
     const [spinValue, setSpinValue] = React.useState<string>(null);
 
     const timeout = React.useRef<number>(null);
     const onSpin = React.useCallback(() => {
-        const x = Math.floor(Math.random() * 360) - 180;
-        const y = Math.floor(Math.random() * 360) - 180;
-        const z = Math.floor(Math.random() * 360) - 180;
+        const x = MathsUtils.getRandomInRange(-180, 180);
+        const y = MathsUtils.getRandomInRange(-180, 180);
+        const z = MathsUtils.getRandomInRange(-180, 180);
 
-        setSpinValue(`rotateX(${x}deg) rotateY(${y}deg) rotateZ(${z}deg)`);
+        setSpinValue(StyleUtils.get3dRotation(x, y, z));
     }, [spinValue]);
 
     // eslint-disable-next-line consistent-return
@@ -30,9 +40,17 @@ export const Die: React.FunctionComponent<IDieProps> = ({ currentValue, spinning
         }
     }, [spinning, onSpin]);
 
+    const style = React.useMemo<React.CSSProperties>(
+        () => ({
+            ...(spinning ? { transform: spinValue } : {}),
+            transitionDuration: `${spinTime}ms`,
+        }),
+        [spinValue, spinTime, spinning],
+    );
+
     return (
         <div className="die-wrapper" data-spinning={spinning}>
-            <div className="die" data-value={currentValue} style={spinning ? { transform: spinValue } : {}}>
+            <div className="die" data-value={MathsUtils.clamp(currentValue, 1, 6) || null} style={style}>
                 {faces.map(face => (
                     <DieFace key={face} faceNumber={face} />
                 ))}
@@ -43,22 +61,4 @@ export const Die: React.FunctionComponent<IDieProps> = ({ currentValue, spinning
 
 Die.defaultProps = {
     spinTime: 500,
-};
-
-interface IDieFaceProps {
-    faceNumber: number;
-}
-
-export const DieFace: React.FunctionComponent<IDieFaceProps> = ({ faceNumber }) => {
-    const points = React.useMemo(() => new Array(Math.min(faceNumber, 6)).fill(0), [faceNumber]);
-
-    return (
-        <div className="die-face" data-face-number={faceNumber}>
-            {points.map((_, index) => (
-                <div className="point-wrapper" key={index}>
-                    <div className="point" />
-                </div>
-            ))}
-        </div>
-    );
 };

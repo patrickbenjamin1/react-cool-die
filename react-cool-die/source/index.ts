@@ -1,1 +1,2 @@
-export { Die, DieFace } from './components/die';
+export { Die } from './components/die';
+export { DieFace } from './components/dieFace';
