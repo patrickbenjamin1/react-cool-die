@@ -1,15 +1,23 @@
 import * as React from 'react';
 
-import { Die } from '../../../react-cool-die/source/components/die';
+import { Die, useRandomDieRoll } from '../../../react-cool-die/source';
 
 export const Home: React.FunctionComponent = () => {
     const [value, setValue] = React.useState(null);
 
-    return (
-        <div>
-            <Die currentValue={value} spinning={!value} />
+    const { roll, rolling, value: rollValue } = useRandomDieRoll();
 
-            <input type="num" onChange={event => setValue(parseInt(event.currentTarget.value, 10))} />
+    return (
+        <div className="playground">
+            <div className="die-example">
+                <Die currentValue={value} rolling={!value} />
+                <input type="number" onChange={event => setValue(parseInt(event.currentTarget.value, 10))} />
+            </div>
+
+            <div className="die-example">
+                <Die currentValue={rollValue} rolling={rolling} spinTime={250} />
+                <button onClick={roll}>ROLL</button>
+            </div>
         </div>
     );
 };

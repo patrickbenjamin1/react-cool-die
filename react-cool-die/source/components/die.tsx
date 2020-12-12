@@ -9,7 +9,7 @@ interface IDieProps {
     currentValue: number;
 
     /** is currently spinning */
-    spinning: boolean;
+    rolling: boolean;
 
     /** spin time in ms */
     spinTime?: number;
@@ -19,7 +19,7 @@ const faces = new Array(6).fill(0).map((_, index) => index + 1);
 
 /** A D6 die rendered using DOM elements with 3d transforms */
 
-export const Die: React.FunctionComponent<IDieProps> = ({ currentValue, spinning, spinTime }) => {
+export const Die: React.FunctionComponent<IDieProps> = ({ currentValue, rolling, spinTime }) => {
     const [spinValue, setSpinValue] = React.useState<string>(null);
 
     const timeout = React.useRef<number>(null);
@@ -33,23 +33,23 @@ export const Die: React.FunctionComponent<IDieProps> = ({ currentValue, spinning
 
     // eslint-disable-next-line consistent-return
     React.useEffect(() => {
-        if (spinning) {
+        if (rolling) {
             timeout.current = window.setTimeout(onSpin, spinTime);
 
             return () => window.clearTimeout(timeout.current);
         }
-    }, [spinning, onSpin]);
+    }, [rolling, onSpin]);
 
     const style = React.useMemo<React.CSSProperties>(
         () => ({
-            ...(spinning ? { transform: spinValue } : {}),
+            ...(rolling ? { transform: spinValue } : {}),
             transitionDuration: `${spinTime}ms`,
         }),
-        [spinValue, spinTime, spinning],
+        [spinValue, spinTime, rolling],
     );
 
     return (
-        <div className="die-wrapper" data-spinning={spinning}>
+        <div className="die-wrapper" data-rolling={rolling} style={{ transitionDuration: `${spinTime}ms` }}>
             <div className="die" data-value={MathsUtils.clamp(currentValue, 1, 6) || null} style={style}>
                 {faces.map(face => (
                     <DieFace key={face} faceNumber={face} />

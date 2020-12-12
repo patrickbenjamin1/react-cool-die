@@ -1,7 +1,16 @@
 body {
-    padding: 300px;
+    padding: 50px;
 
-    input {
-        margin-top: 100px;
+    .playground {
+        display: flex;
+
+        .die-example {
+            padding: 100px;
+
+            input,
+            button {
+                margin-top: 100px;
+            }
+        }
     }
 }

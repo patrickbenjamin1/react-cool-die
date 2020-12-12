@@ -33,7 +33,7 @@ $static-rotation-offset: 3deg;
         box-sizing: border-box;
     }
 
-    &[data-spinning='true'] {
+    &[data-rolling='true'] {
         transform: scale(0.9);
     }
 
