@@ -1,0 +1,10 @@
+node_modules
+
+.eslintignore
+.eslintrc.js
+.prettierignore
+.prettierrc.js
+webpack.config.js
+
+playground
+react-cool-text/source

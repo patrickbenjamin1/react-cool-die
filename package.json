@@ -1,0 +1,72 @@
+{
+    "name": "react-cool-die",
+    "author": "Patrick Benjamin",
+    "main": "react-cool-die/output/index.js",
+    "dependencies": {
+        "@rocketmakers/armstrong": "0.0.1-alpha.63",
+        "react": "^16.12.0",
+        "react-dom": "^16.12.0",
+        "react-helmet": "^5.2.1",
+        "react-router-dom": "^5.1.2"
+    },
+    "typings": "react-cool-text/output/index.d.ts",
+    "keywords": [
+        "react",
+        "typescript",
+        "typography"
+    ],
+    "directories": {
+        "lib": "react-cool-die/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/patrickbenjamin1/react-cool-die"
+    },
+    "scripts": {
+        "start-playground": "TS_NODE_PROJECT=\"./playground/webpack.tsconfig.json\" webpack-dev-server --config ./playground/webpack.config.ts --mode development",
+        "build-scss": "npx node-sass --output ./react-cool-die/output ./react-cool-die/source",
+        "build-ts": "(cd react-cool-die && tsc --pretty -p source -d)",
+        "build": "npm run build-ts && npm run build-scss",
+        "prepublish": "npm run build",
+        "clean": "rm -rf playground/output react-cool-die/output",
+        "clean-full": "npm run clean -- node_modules"
+    },
+    "devDependencies": {
+        "@types/html-webpack-plugin": "^3.2.4",
+        "@types/node": "^11.11.3",
+        "@types/react": "^16.9.11",
+        "@types/react-dom": "^16.9.4",
+        "@types/react-helmet": "^5.0.8",
+        "@types/react-router": "^4.4.5",
+        "@types/react-router-dom": "^4.3.1",
+        "@types/terser-webpack-plugin": "^2.2.0",
+        "@types/webpack": "^4.41.8",
+        "@types/webpack-dev-server": "^3.10.1",
+        "@typescript-eslint/eslint-plugin": "^2.16.0",
+        "@typescript-eslint/parser": "^2.16.0",
+        "css-loader": "^3.2.0",
+        "eslint": "^6.8.0",
+        "eslint-config-airbnb": "^18.0.1",
+        "eslint-config-prettier": "^6.9.0",
+        "eslint-plugin-import": "^2.20.0",
+        "eslint-plugin-prettier": "^3.1.2",
+        "eslint-plugin-react": "^7.18.0",
+        "eslint-plugin-simple-import-sort": "^5.0.0",
+        "file-loader": "^4.2.0",
+        "html-webpack-plugin": "^3.2.0",
+        "node-sass": "^4.13.0",
+        "prettier": "^1.19.1",
+        "sass-loader": "^7.1.0",
+        "source-map-loader": "^0.2.4",
+        "style-loader": "^1.0.0",
+        "svg-inline-loader": "^0.8.0",
+        "terser-webpack-plugin": "^2.2.1",
+        "ts-loader": "^6.2.1",
+        "ts-node": "^8.8.1",
+        "tsconfig-paths": "^3.9.0",
+        "typescript": "^3.7.2",
+        "webpack": "^4.41.2",
+        "webpack-cli": "^3.3.10",
+        "webpack-dev-server": "^3.9.0"
+    }
+}
